@@ -8,7 +8,7 @@ services:
         volumes:
             - /etc/localtime:/etc/localtime:ro
             - ./script:/toolkit/script
-            - ./results_files:/toolkit/results_files
+            - ./results_file:/toolkit/results_file
             - ./results_spk:/toolkit/results_spk
             - ./build_env:/toolkit/build_env
         network_mode: "bridge"
