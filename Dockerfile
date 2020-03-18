@@ -1,17 +1,16 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 LABEL maintainer "collelog <collelog.cavamin@gmail.com>"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN set -eux && \
 	apt-get update -qq && \
-	apt-get install -y -qq --no-install-recommends ca-certificates curl bash build-essential python3 unzip && \
+	apt-get install -y -qq --no-install-recommends bash build-essential ca-certificates curl git python3 unzip && \
 	\
 	# pkgscripts-ng
-	mkdir -p /toolkit/pkgscripts-ng && \
-	cd /toolkit/pkgscripts-ng && \
-	curl -fsSL https://github.com/SynologyOpenSource/pkgscripts-ng/tarball/master \
-		| tar -xz --strip-components=1 && \
+	mkdir /toolkit && \
+	cd /toolkit && \
+	git clone https://github.com/SynologyOpenSource/pkgscripts-ng.git && \
 	\
 	# cleaning
 	apt-get clean && \
