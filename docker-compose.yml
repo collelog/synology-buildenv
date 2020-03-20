@@ -1,15 +1,15 @@
 version: '3.7'
 services:
-    synobuildenv:
-        build:
-            context: .
-        container_name: synobuildenv
-        image: collelog/synobuildenv-ubuntu16.04:master
+    syno-buildenv:
+#        build:
+#            context: .
+        container_name: syno-buildenv
+        image: collelog/synology-buildenv
         volumes:
             - /etc/localtime:/etc/localtime:ro
-            - ./script:/toolkit/script
             - ./results_file:/toolkit/results_file
             - ./results_spk:/toolkit/results_spk
+            - ./script:/toolkit/script
         network_mode: "bridge"
         init: true
         tty: true
