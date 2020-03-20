@@ -16,4 +16,8 @@ RUN set -eux && \
 	apt-get clean && \
 	rm -rf /tmp/* /var/lib/apt/lists/*
 
-WORKDIR /toolkit/script
+VOLUME /toolkit/results_file
+VOLUME /toolkit/results_spk
+VOLUME /toolkit/script
+
+WORKDIR /toolkit/pkgscripts-ng
